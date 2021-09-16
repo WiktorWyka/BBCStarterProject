@@ -1,10 +1,6 @@
 package com.example.StarterProject;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.yaml.snakeyaml.nodes.AnchorNode;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @RestController
@@ -30,13 +26,15 @@ public class API {
         return animalsList;
     }
 
+    //Read Endpoint
     @GetMapping("/PrintAnimals")
     public ArrayList<Animal> printAnimals(){
         return animalsList;
     }
 
+    //Create Endpoint
     @PostMapping(path = "/CreateAnimal")
     public void createAnimal(@RequestBody Animal animal){
-        System.out.println(animal.toString());
+        animalsList.add(animal);
     }
 }
